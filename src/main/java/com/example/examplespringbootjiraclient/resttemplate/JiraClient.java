@@ -1,4 +1,4 @@
-package com.example.examplespringbootjiraclient;
+package com.example.examplespringbootjiraclient.resttemplate;
 
 import java.net.URI;
 import java.util.Collections;
@@ -12,6 +12,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+
+import com.example.examplespringbootjiraclient.JiraClientConfiguration;
 
 public class JiraClient
 {
@@ -44,12 +46,8 @@ public class JiraClient
         return restTemplate.getForEntity(this.searchUrl, String.class);
     }
 
-    public ResponseEntity<String> searchIssues()
+    public ResponseEntity<String> searchIssues(final Map<String, ?> map)
     {
-        var map = Map.of(
-            "jql", "project = MYPROJECT AND status = '***REMOVED*** New'",
-            "fields", new String[]{"id", "key"});
-
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));

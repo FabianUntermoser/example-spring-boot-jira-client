@@ -1,7 +1,9 @@
-package com.example.examplespringbootjiraclient;
+package com.example.examplespringbootjiraclient.resttemplate;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+
+import com.example.examplespringbootjiraclient.JiraClientConfiguration;
 
 @Component
 public class ModuleConfiguration
