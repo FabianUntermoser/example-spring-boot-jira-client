@@ -10,10 +10,13 @@ public class StartupRunner implements CommandLineRunner
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(StartupRunner.class);
 
+    final JiraClient jiraClient;
     final JiraClientConfiguration jiraClientConfiguration;
 
-    public StartupRunner(final JiraClientConfiguration jiraClientConfiguration)
+    public StartupRunner(final JiraClient jiraClient,
+        final JiraClientConfiguration jiraClientConfiguration)
     {
+        this.jiraClient = jiraClient;
         this.jiraClientConfiguration = jiraClientConfiguration;
     }
 
@@ -21,5 +24,6 @@ public class StartupRunner implements CommandLineRunner
     public void run(final String... args) throws Exception
     {
         LOGGER.info("Jira Client Configuration {}", jiraClientConfiguration);
+        LOGGER.info("response {}", jiraClient.searchIssues());
     }
 }
