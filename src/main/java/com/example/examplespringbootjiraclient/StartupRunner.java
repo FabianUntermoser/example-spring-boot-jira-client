@@ -16,6 +16,12 @@ public class StartupRunner implements CommandLineRunner
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(StartupRunner.class);
 
+    public static final String JIRA_PROJECT = "MYPROJECT";
+    public static final String ISSUE_STATUS = "New";
+    private static final Map<String, Serializable> SEARCH_QUERY = Map.of(
+        "jql", "project = " + JIRA_PROJECT + " AND status = '" + ISSUE_STATUS + "'",
+        "fields", new String[]{"id", "key"});
+
     final JiraClient jiraClient;
     final JiraFeignClient jiraFeignClient;
     final JiraClientConfiguration jiraClientConfiguration;
@@ -34,11 +40,7 @@ public class StartupRunner implements CommandLineRunner
     {
         LOGGER.info("Jira Client Configuration {}", jiraClientConfiguration);
 
-        Map<String, Serializable> query= Map.of(
-            "jql", "project = MYPROJECT AND status = '***REMOVED*** New'",
-            "fields", new String[]{"id", "key"});
-
-        LOGGER.info("response {}", jiraClient.searchIssues(query));
-        LOGGER.info("response {}", jiraFeignClient.searchIssues(query));
+        LOGGER.info("response {}", jiraClient.searchIssues(SEARCH_QUERY));
+        LOGGER.info("response {}", jiraFeignClient.searchIssues(SEARCH_QUERY));
     }
 }
