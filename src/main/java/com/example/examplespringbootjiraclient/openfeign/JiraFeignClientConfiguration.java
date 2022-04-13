@@ -1,7 +1,7 @@
 package com.example.examplespringbootjiraclient.openfeign;
 
 import feign.Logger;
-import feign.auth.BasicAuth***REMOVED***Interceptor;
+import feign.auth.BasicAuthRequestInterceptor;
 
 import org.springframework.context.annotation.Bean;
 
@@ -17,9 +17,11 @@ public class JiraFeignClientConfiguration
     }
 
     @Bean
-    public BasicAuth***REMOVED***Interceptor basicAuth***REMOVED***Interceptor(JiraClientConfiguration configuration)
+    public BasicAuthRequestInterceptor basicAuthRequestInterceptor(JiraClientConfiguration configuration)
     {
-        return new BasicAuth***REMOVED***Interceptor(configuration.getUsername(), configuration.getPassword());
+        String username = configuration.getUsername();
+        String password = configuration.getPassword();
+        return new BasicAuthRequestInterceptor(username, password);
     }
 
 }

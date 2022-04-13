@@ -33,7 +33,7 @@ public class JiraManagementRestController
     @GetMapping("/issues")
     public ResponseEntity<String> getIssues()
     {
-        LOGGER.info("***REMOVED***ing Issues");
+        LOGGER.info("Searching Issues");
         return jiraClient.getIssues();
     }
 

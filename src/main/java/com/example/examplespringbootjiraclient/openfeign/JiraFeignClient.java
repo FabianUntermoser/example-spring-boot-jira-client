@@ -19,6 +19,6 @@ public interface JiraFeignClient
     ResponseEntity<String> getIssues();
 
     @PostMapping(value = "/search", consumes = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<String> searchIssues(Map<String, ?> jiraSearch***REMOVED***);
+    ResponseEntity<String> searchIssues(Map<String, ?> query);
 
 }
