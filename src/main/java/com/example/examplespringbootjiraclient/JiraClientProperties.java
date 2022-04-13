@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties("jira.client")
-public class JiraClientConfiguration
+public class JiraClientProperties
 {
     private String username;
     private String password;
@@ -16,7 +16,7 @@ public class JiraClientConfiguration
         return username;
     }
 
-    public JiraClientConfiguration setUsername(final String username)
+    public JiraClientProperties setUsername(final String username)
     {
         this.username = username;
         return this;
@@ -27,7 +27,7 @@ public class JiraClientConfiguration
         return password;
     }
 
-    public JiraClientConfiguration setPassword(final String password)
+    public JiraClientProperties setPassword(final String password)
     {
         this.password = password;
         return this;
@@ -38,7 +38,7 @@ public class JiraClientConfiguration
         return url;
     }
 
-    public JiraClientConfiguration setUrl(final String url)
+    public JiraClientProperties setUrl(final String url)
     {
         this.url = url;
         return this;

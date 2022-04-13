@@ -22,11 +22,11 @@ public class StartupRunner implements CommandLineRunner
 
     final JiraClient jiraClient;
     final JiraFeignClient jiraFeignClient;
-    final JiraClientConfiguration jiraClientConfiguration;
+    final JiraClientProperties jiraClientConfiguration;
 
     public StartupRunner(final JiraClient jiraClient,
         final JiraFeignClient jiraFeignClient,
-        final JiraClientConfiguration jiraClientConfiguration)
+        final JiraClientProperties jiraClientConfiguration)
     {
         this.jiraClient = jiraClient;
         this.jiraFeignClient = jiraFeignClient;

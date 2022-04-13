@@ -15,14 +15,14 @@ import com.example.examplespringbootjiraclient.openfeign.JiraFeignClient;
 import com.example.examplespringbootjiraclient.resttemplate.JiraClient;
 
 @RestController
-public class JiraManagementRestController
+public class JiraIntegrationRestController
 {
-    private static final Logger LOGGER = getLogger(JiraManagementRestController.class);
+    private static final Logger LOGGER = getLogger(JiraIntegrationRestController.class);
 
     final JiraClient jiraClient;
     final JiraFeignClient jiraFeignClient;
 
-    public JiraManagementRestController(
+    public JiraIntegrationRestController(
         final JiraClient jiraClient,
         final JiraFeignClient jiraFeignClient)
     {

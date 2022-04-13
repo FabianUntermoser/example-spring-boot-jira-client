@@ -13,7 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.examplespringbootjiraclient.JiraClientConfiguration;
+import com.example.examplespringbootjiraclient.JiraClientProperties;
 
 public class JiraClient
 {
@@ -21,10 +21,10 @@ public class JiraClient
     public static final String REST_API_2_SEARCH = "/rest/api/2/search";
 
     private final RestTemplate restTemplate;
-    private final JiraClientConfiguration configuration;
+    private final JiraClientProperties configuration;
     private final String searchUrl;
 
-    public JiraClient(JiraClientConfiguration configuration)
+    public JiraClient(JiraClientProperties configuration)
     {
         this.configuration = configuration;
         this.restTemplate = buildRestTemplate();

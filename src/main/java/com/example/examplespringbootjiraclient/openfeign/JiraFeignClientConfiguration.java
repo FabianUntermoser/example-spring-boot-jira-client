@@ -5,7 +5,7 @@ import feign.auth.BasicAuthRequestInterceptor;
 
 import org.springframework.context.annotation.Bean;
 
-import com.example.examplespringbootjiraclient.JiraClientConfiguration;
+import com.example.examplespringbootjiraclient.JiraClientProperties;
 
 public class JiraFeignClientConfiguration
 {
@@ -17,7 +17,7 @@ public class JiraFeignClientConfiguration
     }
 
     @Bean
-    public BasicAuthRequestInterceptor basicAuthRequestInterceptor(JiraClientConfiguration configuration)
+    public BasicAuthRequestInterceptor basicAuthRequestInterceptor(JiraClientProperties configuration)
     {
         String username = configuration.getUsername();
         String password = configuration.getPassword();
